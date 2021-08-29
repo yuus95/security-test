@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://database-1.c5fdh97vph8x.ap-northeast-2.rds.amazonaws.com:3306/simple__project_test?serverTimezone=Asia/Seoul
+    username: admin
+    password: dkssud22
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+  profiles:
+    include: oauth
+
+
+
+jwt:
+  secret: c3ByaW5nLWJvb3Qtc2VjdXJpdHktand0LXR1dG9yaWFsLXl1c2hpbi1zcHJpbmctYm9vdC1zZWN1cml0eS1qd3QtdHV0b3JpYWw=
+
+logging:
+  level:
+    me.silvernine: DEBUG
+    org:
+      hibernate:
+        type: trace
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
