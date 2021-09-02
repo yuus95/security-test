@@ -5,7 +5,15 @@ spring:
     password: dkssud22
     driver-class-name: org.mariadb.jdbc.Driver
 
-
+    security:
+      oauth2:
+        client:
+          registration:
+            google:
+              clientId: 1005346694436-2tromqpmnf2vnvoedk1d0btp42lgsgh7.apps.googleusercontent.com
+              clientSecret: treyVcXPIhbvEGMe9oH3S7tx
+              redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+              scope: profile,email
 
   jpa:
     hibernate:
@@ -14,18 +22,6 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
-
-  profiles:
-    include: oauth
-
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            clientId: 1005346694436-2tromqpmnf2vnvoedk1d0btp42lgsgh7.apps.googleusercontent.com
-            clientSecret: treyVcXPIhbvEGMe9oH3S7tx
-            scope: profile,email
 
 
 logging:
@@ -41,14 +37,7 @@ server:
       charset: UTF-8
       enabled: true
       force: true
-
 app:
   auth:
-    tokenSecret: c3ByaW5nLWJvb3Qtc2VjdXJpdHktand0LXR1dG9yaWFsLXl1c2hpbi1zcHJpbmctYm9vdC1zZWN1cml0eS1qd3QtdHV0b3JpYWw
-    # ex) tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
     tokenExpirationMsec: 864000000
-    # ex) tokenExpirationMsec: 864000000
-  oauth2:
-    authorizedRedirectUris:
-      - http://localhost:8080/oauth2/redirect
-    # 생성된 JWT Token을 response할 URI를 입력
